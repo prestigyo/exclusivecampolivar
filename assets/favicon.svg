@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Alcalá Hills monogram">
+  <rect width="64" height="64" rx="10" fill="#2C3E2D"/>
+  <text x="32" y="40" text-anchor="middle"
+        font-family="Cormorant Garamond, Georgia, serif"
+        font-size="34" font-weight="600" fill="#C9A96E">A</text>
+  <rect x="22" y="46" width="20" height="1.6" fill="#C9A96E"/>
+</svg>

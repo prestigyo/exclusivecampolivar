@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Plano de la planta baja (placeholder)">
+  <rect width="800" height="600" fill="#F7F3EE"/>
+  <g fill="none" stroke="#2C3E2D" stroke-width="2">
+    <rect x="80" y="90" width="640" height="420"/>
+    <line x1="380" y1="90" x2="380" y2="510"/>
+    <line x1="80" y1="300" x2="380" y2="300"/>
+    <line x1="380" y1="250" x2="720" y2="250"/>
+    <line x1="560" y1="250" x2="560" y2="510"/>
+  </g>
+  <g fill="#4A4A46" font-family="Inter, sans-serif" font-size="18" font-weight="300">
+    <text x="200" y="205" text-anchor="middle">Salón</text>
+    <text x="200" y="415" text-anchor="middle">Cocina</text>
+    <text x="540" y="180" text-anchor="middle">Comedor</text>
+    <text x="470" y="390" text-anchor="middle">Baño</text>
+    <text x="640" y="390" text-anchor="middle">Terraza</text>
+  </g>
+  <rect x="80" y="540" width="48" height="2" fill="#C9A96E"/>
+  <text x="80" y="575" fill="#2C3E2D" font-family="Inter, sans-serif" font-size="20" font-weight="500" letter-spacing="2">PLANTA BAJA — plano de ejemplo</text>
+</svg>
