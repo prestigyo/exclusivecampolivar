@@ -52,14 +52,7 @@
   }
   </script>
 
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWB760J15B"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XWB760J15B');
-  </script>
+  <!-- Google Analytics 4 is loaded by js/main.js only after cookie consent (RGPD) -->
 </head>
 
 <body>
@@ -91,6 +84,12 @@
 
   <main class="section">
     <div class="container">
+      <!-- Sale / Rent separation -->
+      <div style="display:flex; gap:1rem; align-items:center; margin-bottom:2.5rem; flex-wrap:wrap">
+        <span class="btn btn--dark" aria-current="page" style="cursor:default">For Sale</span>
+        <a class="link-arrow" href="rentals.html">For Rent</a>
+      </div>
+
       <!-- GRID — listings in preparation -->
       <div class="prop-grid">
         <article class="prop-card prop-card--ghost reveal" data-reveal style="--reveal-delay:0ms">
@@ -127,20 +126,6 @@
         We work with a small number of owners at a time, on flexible terms. Tell us about your property and we will take it from there.
       </p>
       <a class="btn btn--dark reveal" data-reveal style="--reveal-delay:160ms" href="list.html">List Your Property</a>
-      <a class="btn btn--dark reveal" data-reveal style="--reveal-delay:160ms" href="adosado-montgo.html">Rents</a>
-    </div>
-      </section>
-
-   <!-- CTA STRIP rents-->
-  <section class="section bg-cream">
-    <div class="container section-head--center">
-      <hr class="gold-line is-draw" data-reveal aria-hidden="true">
-      <span class="eyebrow">Selling in Campolivar?</span>
-      <h2 class="reveal" data-reveal style="margin-bottom:1.5rem">Present your home to the right audience</h2>
-      <p class="reveal" data-reveal style="--reveal-delay:120ms; max-width:48ch; margin:0 auto 2rem; color:var(--ink-soft)">
-        We work with a small number of owners at a time, on flexible terms. Tell us about your property and we will take it from there.
-      </p>
-      <a class="btn btn--dark reveal" data-reveal style="--reveal-delay:160ms" href="adosado-montgo.html">Rents</a>
     </div>
   </section>
 
@@ -149,9 +134,9 @@
     <div class="container footer__inner">
       <p class="footer__copy">© <span data-year>2026</span> Alcalá Hills · Exclusive Campolivar. All rights reserved.</p>
       <nav class="footer__links" aria-label="Legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Legal Notice</a>
-        <a href="#">Cookies</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="legal.html">Legal Notice</a>
+        <a href="cookies.html">Cookies</a>
       </nav>
     </div>
   </footer>
