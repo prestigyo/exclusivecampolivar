@@ -15,6 +15,8 @@
   --olive-mid: #3D5C3E;
   --gold:      #C9A96E;
   --gold-pale: #E8D5B0;
+  --rent:      #4F6B4A;   /* green accent — identifies rental listings */
+  --rent-dark: #3C5239;
   --ink:       #1A1A18;
   --ink-soft:  #4A4A46;
   --white:     #FFFFFF;
@@ -850,6 +852,26 @@ strong {
   margin-top: 1rem;
 }
 
+.form__status {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+.form__status:empty {
+  display: none;
+}
+
+.form__status.is-ok {
+  color: var(--olive-mid);
+  font-weight: 500;
+}
+
+.form__status.is-error {
+  color: #9b3b2f;
+  font-weight: 500;
+}
+
 /* Benefits list */
 .benefits {
   margin: 1.75rem 0 0;
@@ -1510,4 +1532,259 @@ strong {
   .hero__bg {
     transform: none !important;
   }
+
+  .cookie-banner {
+    transition-duration: 0.001ms !important;
+  }
 }
+
+/* -----------------------------------------------------------------
+   25. Cookie consent banner (RGPD — opt-in before analytics)
+   ----------------------------------------------------------------- */
+.cookie-banner {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 200;
+  max-width: 30rem;
+  margin-left: auto;
+  background: var(--olive);
+  color: var(--sand);
+  padding: 1.6rem 1.6rem 1.5rem;
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.55);
+  transform: translateY(160%);
+  transition: transform 0.5s var(--ease-soft);
+}
+
+.cookie-banner.is-open {
+  transform: none;
+}
+
+.cookie-banner p {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: rgba(247, 243, 238, 0.9);
+  margin-bottom: 1.1rem;
+}
+
+.cookie-banner a {
+  color: var(--gold-pale);
+  text-decoration: underline;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cookie-banner .btn {
+  padding: 0.7rem 1.5rem;
+  font-size: 0.72rem;
+}
+
+@media (max-width: 480px) {
+  .cookie-banner {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+  .cookie-banner__actions .btn {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* -----------------------------------------------------------------
+   26. Legal / policy pages
+   ----------------------------------------------------------------- */
+.legal {
+  max-width: 50rem;
+}
+
+.legal .updated {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-bottom: 2.5rem;
+}
+
+.legal h2 {
+  font-size: 1.7rem;
+  margin: 2.75rem 0 1rem;
+}
+
+.legal h3 {
+  font-size: 1.15rem;
+  margin: 1.75rem 0 0.6rem;
+}
+
+.legal p {
+  margin-bottom: 1.1rem;
+}
+
+.legal ul {
+  margin: 0 0 1.25rem;
+}
+
+.legal ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.legal ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 12px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.legal .placeholder {
+  background: var(--cream);
+  padding: 0.05rem 0.4rem;
+  border-radius: 2px;
+  font-style: italic;
+}
+
+.legal__note {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: var(--cream);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+/* -----------------------------------------------------------------
+   27. Property listings — rental (green accent over the main brand)
+   ----------------------------------------------------------------- */
+.eyebrow--rent { color: var(--rent); }
+.gold-line--rent { background: var(--rent); }
+
+.badge-rent {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--rent);
+  padding: 0.4rem 0.8rem;
+}
+
+/* Shorter hero for a listing (reuses .hero internals) */
+.hero--listing { min-height: 70vh; }
+@media (max-width: 768px) { .hero--listing { min-height: 78vh; } }
+
+.hero__price {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+}
+.hero__price small {
+  font-size: 0.4em;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.82);
+}
+.hero__addr {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.98rem;
+  margin-top: 0.6rem;
+}
+
+/* Buttons — rental green + WhatsApp */
+.btn--rent {
+  background: var(--rent);
+  color: var(--white);
+  border-color: var(--rent);
+}
+.btn--rent:hover { background: var(--rent-dark); color: var(--white); }
+
+.btn--whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--rent);
+  color: var(--white);
+  border-color: var(--rent);
+}
+.btn--whatsapp:hover { background: var(--rent-dark); color: var(--white); }
+.btn--whatsapp svg { width: 1.15rem; height: 1.15rem; fill: currentColor; }
+
+/* Floating WhatsApp action */
+.fab-whatsapp {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 50%;
+  background: var(--rent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+  z-index: 150;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+.fab-whatsapp:hover { transform: scale(1.06); background: var(--rent-dark); }
+.fab-whatsapp svg { width: 1.7rem; height: 1.7rem; fill: var(--white); }
+
+/* Cadastre / data table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.data-table tr { border-bottom: 1px solid var(--cream); }
+.data-table td { padding: 0.85rem 0.25rem; vertical-align: top; }
+.data-table td:first-child { color: var(--ink-soft); width: 42%; }
+.data-table td:last-child { color: var(--olive); font-weight: 500; text-align: right; }
+.data-note { font-size: 0.78rem; color: var(--ink-soft); font-style: italic; margin-top: 1rem; }
+
+/* Amenity cards */
+.amenity {
+  background: var(--white);
+  border: 1px solid var(--cream);
+  padding: 2rem 1.75rem;
+}
+.amenity svg { width: 2.25rem; height: 2.25rem; color: var(--rent); margin-bottom: 1rem; }
+.amenity h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+.amenity p { font-size: 0.92rem; color: var(--ink-soft); }
+
+/* Floor-plan PDF download cards */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.plan-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.6rem 1rem;
+  border: 1px solid var(--cream);
+  background: var(--white);
+  text-align: center;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.plan-card:hover { border-color: var(--rent); transform: translateY(-3px); }
+.plan-card svg { width: 2rem; height: 2rem; color: var(--rent); }
+.plan-card span { font-size: 0.8rem; color: var(--olive); font-weight: 500; }
+@media (max-width: 768px) { .plans-grid { grid-template-columns: 1fr 1fr; } }
+
+/* Map */
+.map-frame {
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--cream);
+  overflow: hidden;
+}
+.map-frame iframe { width: 100%; height: 100%; border: 0; }
