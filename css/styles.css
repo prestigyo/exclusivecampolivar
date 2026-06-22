@@ -341,6 +341,47 @@ strong {
 .nav--solid .nav__logo span { color: var(--gold); }
 .nav--solid .nav__links a { color: var(--olive); }
 
+/* Language switcher — sits next to .nav__links, stays visible even where
+   .nav__links collapses on mobile (no hamburger yet, see phase-1 note below). */
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lang-switch a {
+  color: var(--white);
+  opacity: 0.6;
+  transition: opacity 0.2s ease, color 0.3s ease;
+}
+
+.lang-switch a:hover { opacity: 1; }
+
+.lang-switch a.is-active {
+  opacity: 1;
+  color: var(--gold-pale);
+  pointer-events: none;
+}
+
+.lang-switch span { color: var(--white); opacity: 0.35; }
+
+.nav.is-scrolled .lang-switch a,
+.nav--solid .lang-switch a { color: var(--olive); }
+
+.nav.is-scrolled .lang-switch a.is-active,
+.nav--solid .lang-switch a.is-active { color: var(--gold); }
+
 /* -----------------------------------------------------------------
    6. Buttons
    ----------------------------------------------------------------- */

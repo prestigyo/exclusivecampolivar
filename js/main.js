@@ -134,46 +134,7 @@
   }
 
   /* ---------------------------------------------------------------
-     5. Language toggle — stub for phase 2 (EN/ES).
-        Reads/writes a preference; real string-swapping lands later.
-     --------------------------------------------------------------- */
-  function initLangToggle() {
-    var toggle = document.querySelector("[data-lang-toggle]");
-    if (!toggle) return;
-
-    var stored = null;
-    try {
-      stored = window.localStorage.getItem("ah-lang");
-    } catch (e) {
-      /* storage unavailable — ignore */
-    }
-    var current = stored || document.documentElement.lang || "es";
-
-    function reflect() {
-      toggle.setAttribute("data-lang", current);
-      toggle.setAttribute(
-        "aria-label",
-        current === "es" ? "Cambiar idioma a inglés" : "Switch language to Spanish"
-      );
-    }
-
-    toggle.addEventListener("click", function (e) {
-      e.preventDefault();
-      current = current === "es" ? "en" : "es";
-      try {
-        window.localStorage.setItem("ah-lang", current);
-      } catch (err) {
-        /* ignore */
-      }
-      reflect();
-      // Phase 2: swap page strings / route to /en/ here.
-    });
-
-    reflect();
-  }
-
-  /* ---------------------------------------------------------------
-     6. Footer year
+     5. Footer year
      --------------------------------------------------------------- */
   function initYear() {
     var el = document.querySelector("[data-year]");
@@ -181,7 +142,7 @@
   }
 
   /* ---------------------------------------------------------------
-     7. Cookie consent (RGPD) — Google Analytics loads only on accept.
+     6. Cookie consent (RGPD) — Google Analytics loads only on accept.
         Choice stored in localStorage under "ah-cookie-consent".
      --------------------------------------------------------------- */
   var GA_ID = "G-XWB760J15B";
@@ -273,7 +234,7 @@
   }
 
   /* ---------------------------------------------------------------
-     8. Lead forms — submit to the Google Apps Script web app.
+     7. Lead forms — submit to the Google Apps Script web app.
         Same pattern as the Graó project: POST JSON as text/plain with
         mode:"no-cors" (no preflight, opaque response → if fetch doesn't
         throw, we treat it as delivered). The Apps Script writes the row
@@ -350,7 +311,6 @@
     initReveals();
     initHero();
     initParallax();
-    initLangToggle();
     initYear();
     initCookieConsent();
     initLeadForms();
