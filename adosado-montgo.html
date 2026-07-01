@@ -467,7 +467,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   footer a { border-bottom: 1px solid rgba(255,252,246,0.2); }
   footer a:hover { color: var(--blanco-calido); }
 
-  /* ---------- RESPONSIVE ---------- */
+  .galeria-completa {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .galeria-completa img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+  .galeria-completa img:hover { opacity: 0.88; }
+  .galeria-completa .foto-grande {
+    grid-column: span 2;
+    height: 280px;
+  }
+
+  @media (max-width: 860px) {
+    .galeria-completa { grid-template-columns: repeat(2, 1fr); }
+    .galeria-completa .foto-grande { grid-column: span 2; height: 200px; }
+    .galeria-completa img { height: 140px; }
+  }
+
+  /* ---------- GALERÍA PLANOS ---------- */
   @media (max-width: 860px) {
     .ficha-rapida .contenedor { grid-template-columns: repeat(2, 1fr); }
     .dato-rapido:nth-child(2) { border-right: none; }
@@ -572,21 +597,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
       </div>
 
-      <!-- Galería mini: rutas reales esperadas en fotos/foto-02.jpg, foto-03.jpg, foto-04.jpg -->
-      <div class="galeria-mini">
-        <img class="grande" src="fotos/foto-02.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80';" alt="Salón del adosado">
-        <img src="fotos/foto-03.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=600&q=80';" alt="Cocina del adosado">
-        <img src="fotos/foto-04.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80';" alt="Dormitorio del adosado">
+      <!-- Galería completa: foto-01 (hero), foto-02 a foto-08 + foto-033 -->
+      <div class="galeria-completa">
+        <img class="foto-grande" src="fotos/foto-02.jpg" alt="Interior adosado Godella">
+        <img src="fotos/foto-03.jpg" alt="Interior adosado Godella">
+        <img src="fotos/foto-04.jpg" alt="Interior adosado Godella">
+        <img src="fotos/foto-05.jpg" alt="Interior adosado Godella">
+        <img src="fotos/foto-06.jpg" alt="Interior adosado Godella">
+        <img src="fotos/foto-07.jpg" alt="Interior adosado Godella">
+        <img src="fotos/foto-08.jpg" alt="Interior adosado Godella">
+        <img src="fotos/foto-033.jpg" alt="Interior adosado Godella">
       </div>
-      <!--
-        MAPEO DE FOTOS REALES (carpeta local del usuario: .../Propiedades/alquileres/fotos adosado montgo)
-        Claude Code debe:
-        1. Listar los archivos reales de esa carpeta
-        2. O bien renombrarlos a foto-01.jpg, foto-02.jpg... (orden: fachada, salón, cocina, habitaciones, baños, piscina, zona juegos)
-           o bien actualizar los atributos src de este archivo para que apunten a los nombres reales
-        3. Copiar la carpeta de fotos junto a este HTML en el repo, en una subcarpeta "fotos/"
-        4. Hacer lo mismo con la carpeta de PLANOS (subcarpeta "planos/"), y añadir una sección de planos si procede
-      -->
     </div>
   </section>
 
@@ -595,15 +616,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="contenedor">
       <h2 class="titulo-seccion">Planos de la vivienda</h2>
       <p class="subtitulo-seccion">Distribución por planta: baja, primera y semisótano.</p>
-      <div class="galeria-mini" id="galeria-planos">
-        <!--
-          PLANOS: Claude Code debe copiar la carpeta de planos del usuario a "planos/" junto a este HTML
-          y sustituir las rutas siguientes por los nombres reales (ej. planos/planta-baja.jpg, planos/planta-primera.jpg, planos/semisotano.jpg)
-          Si los planos están en PDF en vez de imagen, usar un enlace de descarga en vez de <img>.
-        -->
-        <img src="planos/plano-01.jpg" onerror="this.style.display='none';" alt="Plano planta baja">
-        <img src="planos/plano-02.jpg" onerror="this.style.display='none';" alt="Plano planta primera">
-        <img class="grande" src="planos/plano-03.jpg" onerror="this.style.display='none';" alt="Plano semisótano">
+      <div class="galeria-completa" id="galeria-planos">
+        <img class="foto-grande" src="planos/plano-01.jpg" alt="Plano planta baja adosado Godella">
+        <img src="planos/plano-02.jpg" alt="Plano planta primera adosado Godella">
+        <img src="planos/plano-03.jpg" alt="Plano semisótano adosado Godella">
       </div>
     </div>
   </section>
